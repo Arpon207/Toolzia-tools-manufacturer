@@ -2,14 +2,13 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-
+import toolsRoute from "./routes/tools.js";
+import usersRoute from "./routes/users.js";
+import ordersRoute from "./routes/orders.js";
+import reviewsRouter from "./routes/reviews.js";
 const app = express();
 const port = process.env.PORT || 5000;
-
-//middlewares
 dotenv.config();
-app.use(cors());
-app.use(express.json());
 
 //connection
 
@@ -25,6 +24,14 @@ const connection = async () => {
     throw error;
   }
 };
+
+//middlewares
+app.use(cors());
+app.use(express.json());
+app.use("/toolzia/api/tools/", toolsRoute);
+app.use("/toolzia/api/users/", usersRoute);
+app.use("/toolzia/api/orders/", ordersRoute);
+app.use("/toolzia/api/reviews/", reviewsRouter);
 
 //api
 
