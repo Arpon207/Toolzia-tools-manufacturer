@@ -26,7 +26,14 @@ const Navbar = (props) => {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <AppBar position="static">
+    <AppBar
+      position="fixed"
+      color="transparent"
+      sx={{
+        boxShadow: "none",
+        background: "white",
+      }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <IconButton
@@ -77,8 +84,8 @@ const Navbar = (props) => {
               >
                 <RouterLink
                   style={{
-                    color: "white",
-                    fontWeight: "normal",
+                    color: "black",
+                    fontWeight: "500",
                     textDecoration: "none",
                   }}
                   to={page.path}
@@ -105,7 +112,12 @@ const Navbar = (props) => {
               }}
             >
               <HandymanIcon
-                sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
+                sx={{
+                  display: { xs: "none", md: "flex" },
+                  mr: 1,
+                  color: "orange",
+                  fontSize: "1.8rem",
+                }}
               />
               <Typography
                 variant="h6"
@@ -120,6 +132,7 @@ const Navbar = (props) => {
                   letterSpacing: ".1rem",
                   color: "inherit",
                   textDecoration: "none",
+                  fontSize: "1.8rem",
                 }}
               >
                 Toolzia

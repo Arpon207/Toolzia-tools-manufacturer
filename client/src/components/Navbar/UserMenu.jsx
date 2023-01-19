@@ -81,17 +81,25 @@ const UserMenu = () => {
           >
             <RouterLink
               style={{
-                color: "white",
+                color: "black",
                 fontWeight: "normal",
                 textDecoration: "none",
                 display: "flex",
                 alignItems: "center",
+                backgroundColor: "orange",
+                padding: ".5rem 1rem",
+                borderRadius: ".5rem",
+                color: "white",
               }}
               to={"/login"}
             >
               <AccountCircleIcon sx={{ mr: 1 }} />
               <Typography
-                sx={{ display: { xs: "none", md: "flex" }, fontSize: ".9rem" }}
+                sx={{
+                  display: { xs: "none", md: "flex" },
+                  fontSize: ".9rem",
+                  fontWeight: "600",
+                }}
               >
                 Login
               </Typography>
