@@ -28,10 +28,9 @@ const Navbar = (props) => {
   return (
     <AppBar
       position="fixed"
-      color="transparent"
       sx={{
         boxShadow: "none",
-        background: "white",
+        background: "rgba(0,0,0,.7)",
       }}
     >
       <Container maxWidth="xl">
@@ -78,13 +77,12 @@ const Navbar = (props) => {
                 sx={{
                   color: "white",
                   textDecoration: "none",
-                  my: 2,
                   display: "block",
                 }}
               >
                 <RouterLink
                   style={{
-                    color: "black",
+                    color: "white",
                     fontWeight: "500",
                     textDecoration: "none",
                   }}
@@ -115,7 +113,7 @@ const Navbar = (props) => {
                 sx={{
                   display: { xs: "none", md: "flex" },
                   mr: 1,
-                  color: "orange",
+                  color: "orangered",
                   fontSize: "1.8rem",
                 }}
               />
@@ -125,7 +123,6 @@ const Navbar = (props) => {
                 component="a"
                 href="/"
                 sx={{
-                  mr: 2,
                   display: { xs: "none", md: "flex" },
                   fontFamily: "monospace",
                   fontWeight: 700,
@@ -139,7 +136,6 @@ const Navbar = (props) => {
               </Typography>
             </Box>
           </Box>
-
           <UserMenu />
         </Toolbar>
       </Container>

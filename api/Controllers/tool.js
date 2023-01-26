@@ -11,7 +11,9 @@ export const createTool = async (req, res) => {
 };
 
 export const getTools = async (req, res) => {
-  const tools = await Tool.find();
+  const category = req.query.category;
+  const filter = category ? { category: category } : {};
+  const tools = await Tool.find(filter);
   res.status(200).send(tools);
 };
 

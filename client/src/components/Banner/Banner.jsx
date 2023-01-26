@@ -2,9 +2,7 @@ import "./banner.css";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import { motion } from "framer-motion";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { container, item } from "../../constants/animations";
-import { Autoplay, Pagination } from "swiper";
+import { container, item, BannerCard } from "../../constants/animations";
 
 import img1 from "../../assets/img1.png";
 import img2 from "../../assets/img2.png";
@@ -14,8 +12,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 const Banner = () => {
-  const imgs = [img1, img2, img3];
-
   const info = [
     { element: <h1>TOOlZIA</h1> },
     {
@@ -39,7 +35,7 @@ const Banner = () => {
         </p>
       ),
     },
-    { element: <Button variant="contained">Exlore</Button> },
+    { element: <Button variant="contained">Explore</Button> },
   ];
 
   return (
@@ -52,44 +48,26 @@ const Banner = () => {
           className="left"
         >
           {info.map(({ element }, i) => (
-            <motion.div variants={item}>{element}</motion.div>
+            <motion.div key={i} variants={item}>
+              {element}
+            </motion.div>
           ))}
         </motion.div>
-        <motion.div
-          initial={{
-            y: 20,
-            opacity: 0,
-          }}
-          animate={{
-            y: 0,
-            opacity: 1,
-          }}
-          transition={{
-            delay: 0.4,
-            duration: 1,
-          }}
-          className="right"
-        >
-          <Swiper
-            spaceBetween={30}
-            centeredSlides={true}
-            autoplay={{
-              delay: 2500,
-              disableOnInteraction: false,
-            }}
-            pagination={{
-              clickable: true,
-            }}
-            modules={[Autoplay, Pagination]}
-            className="mySwiper"
-          >
-            {imgs.map((image, i) => (
-              <SwiperSlide className="swiper-slide" key={i}>
-                <img src={image} alt="" />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </motion.div>
+
+        <div className="info-card">
+          {[1, 2, 3].map(() => (
+            <motion.div
+              variants={BannerCard}
+              initial="hidden"
+              animate="visible"
+              className="card"
+            >
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum
+              quidem distinctio nulla nesciunt quasi maiores saepe quis,
+              <Button variant="contained">Learn more</Button>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </Box>
   );

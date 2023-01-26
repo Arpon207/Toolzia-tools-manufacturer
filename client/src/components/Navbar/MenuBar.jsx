@@ -44,6 +44,7 @@ const MenuBar = ({ mobileOpen, handleDrawerToggle, container }) => {
         }}
         sx={{
           display: { xs: "block", md: "none" },
+          backgroundColor: "rgba(0,0,0,0.2)",
           "& .MuiDrawer-paper": {
             boxSizing: "border-box",
             width: drawerWidth,

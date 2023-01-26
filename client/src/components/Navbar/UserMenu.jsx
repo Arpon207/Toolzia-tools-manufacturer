@@ -15,7 +15,7 @@ const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const UserMenu = () => {
   const [anchorElUser, setAnchorElUser] = useState(null);
-  const [user] = useState(false);
+  const [user] = useState(true);
 
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
@@ -75,18 +75,16 @@ const UserMenu = () => {
             sx={{
               color: "white",
               textDecoration: "none",
-              my: 2,
               display: "block",
             }}
           >
             <RouterLink
               style={{
-                color: "black",
                 fontWeight: "normal",
                 textDecoration: "none",
                 display: "flex",
                 alignItems: "center",
-                backgroundColor: "orange",
+                backgroundColor: "rgb(255, 69, 0,.8)",
                 padding: ".5rem 1rem",
                 borderRadius: ".5rem",
                 color: "white",
