@@ -11,10 +11,15 @@ export const createTool = async (req, res) => {
 };
 
 export const getTools = async (req, res) => {
+  const page = parseInt(req.query.currentPage) || 1;
+  const toolsPerPage = 6;
   const category = req.query.category;
   const filter = category ? { category: category } : {};
-  const tools = await Tool.find(filter);
-  res.status(200).send(tools);
+  const tools = await Tool.find(filter)
+    .skip((page - 1) * toolsPerPage)
+    .limit(toolsPerPage);
+  const count = await Tool.countDocuments();
+  res.status(200).send({ tools, count });
 };
 
 export const getTool = async (req, res) => {

@@ -1,15 +1,17 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
-import { Link as RouterLink } from "react-router-dom";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useState } from "react";
+import {
+  Avatar,
+  Box,
+  Button,
+  IconButton,
+  Menu,
+  MenuItem,
+  Tooltip,
+  Typography,
+} from "@mui/material";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+
+import { Link as RouterLink } from "react-router-dom";
 
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
@@ -84,7 +86,7 @@ const UserMenu = () => {
                 textDecoration: "none",
                 display: "flex",
                 alignItems: "center",
-                backgroundColor: "rgb(255, 69, 0,.8)",
+                backgroundColor: "var(--clr-secondary)",
                 padding: ".5rem 1rem",
                 borderRadius: ".5rem",
                 color: "white",

@@ -1,36 +1,50 @@
-import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
-import HandymanIcon from "@mui/icons-material/Handyman";
 import { useState } from "react";
+
+import AppBar from "@mui/material/AppBar";
+import MenuIcon from "@mui/icons-material/Menu";
+import HandymanIcon from "@mui/icons-material/Handyman";
+import {
+  Box,
+  Button,
+  Container,
+  IconButton,
+  Toolbar,
+  Typography,
+} from "@mui/material";
+
 import { Link as RouterLink } from "react-router-dom";
 import UserMenu from "./UserMenu";
 import { navlinks } from "../../constants/navlinks";
 import MenuBar from "./MenuBar";
 
 const Navbar = (props) => {
-  const { window } = props;
+  const { window: Window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [show, setShow] = useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
 
   const container =
-    window !== undefined ? () => window().document.body : undefined;
+    Window !== undefined ? () => window().document.body : undefined;
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 80) {
+      setShow(true);
+    } else {
+      setShow(false);
+    }
+  });
 
   return (
     <AppBar
       position="fixed"
       sx={{
         boxShadow: "none",
-        background: "rgba(0,0,0,.7)",
+        background: show ? "white" : "var(--bg-1)",
+        color: show ? "black" : "white",
+        transition: ".3s ",
       }}
     >
       <Container maxWidth="xl">
@@ -51,7 +65,16 @@ const Navbar = (props) => {
             container={container}
           />
 
-          <HandymanIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          <HandymanIcon
+            sx={{
+              display: {
+                xs: "flex",
+                md: "none",
+                color: "var(--clr-secondary)",
+              },
+              mr: 1,
+            }}
+          />
           <Typography
             variant="h5"
             noWrap
@@ -75,14 +98,13 @@ const Navbar = (props) => {
               <Button
                 key={i}
                 sx={{
-                  color: "white",
                   textDecoration: "none",
                   display: "block",
                 }}
               >
                 <RouterLink
                   style={{
-                    color: "white",
+                    color: show ? "black" : "white",
                     fontWeight: "500",
                     textDecoration: "none",
                   }}
@@ -122,12 +144,12 @@ const Navbar = (props) => {
                 noWrap
                 component="a"
                 href="/"
+                color="inherit"
                 sx={{
                   display: { xs: "none", md: "flex" },
                   fontFamily: "monospace",
                   fontWeight: 700,
                   letterSpacing: ".1rem",
-                  color: "inherit",
                   textDecoration: "none",
                   fontSize: "1.8rem",
                 }}

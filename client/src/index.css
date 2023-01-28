@@ -10,3 +10,10 @@
 ::-webkit-scrollbar {
   display: none;
 }
+
+:root {
+  --bg-1: rgba(0, 0, 0, 0.715);
+  --clr-primary: white;
+  --clr-secondary: orangered;
+  --clr-black: black;
+}

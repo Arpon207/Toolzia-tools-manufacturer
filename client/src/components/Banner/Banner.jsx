@@ -1,15 +1,7 @@
 import "./banner.css";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import { motion } from "framer-motion";
 import { container, item, BannerCard } from "../../constants/animations";
-
-import img1 from "../../assets/img1.png";
-import img2 from "../../assets/img2.png";
-import img3 from "../../assets/img3.png";
-
-import "swiper/css";
-import "swiper/css/pagination";
+import { Box, Button } from "@mui/material";
 
 const Banner = () => {
   const info = [
@@ -54,20 +46,21 @@ const Banner = () => {
           ))}
         </motion.div>
 
-        <div className="info-card">
-          {[1, 2, 3].map(() => (
+        {/* <div className="info-card">
+          {[1, 2, 3].map((i) => (
             <motion.div
               variants={BannerCard}
               initial="hidden"
               animate="visible"
               className="card"
+              key={i}
             >
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum
               quidem distinctio nulla nesciunt quasi maiores saepe quis,
               <Button variant="contained">Learn more</Button>
             </motion.div>
           ))}
-        </div>
+        </div> */}
       </div>
     </Box>
   );

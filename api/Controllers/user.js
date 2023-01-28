@@ -3,8 +3,6 @@ import jwt from "jsonwebtoken";
 
 export const getToken = async (req, res) => {
   const user = req.body;
-  console.log(user);
-  console.log(req.params.email);
   try {
     const result = await User.updateOne({ email: req.params.email }, user, {
       upsert: true,

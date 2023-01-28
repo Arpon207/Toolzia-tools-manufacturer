@@ -1,7 +1,6 @@
 import Review from "./../models/Review.js";
 
 export const createReview = async (req, res) => {
-  console.log(req.body);
   const newReview = new Review(req.body);
   try {
     const result = await newReview.save();

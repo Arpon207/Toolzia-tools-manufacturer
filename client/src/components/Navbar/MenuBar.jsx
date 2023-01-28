@@ -1,12 +1,12 @@
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import {
+  Box,
   Divider,
   Drawer,
   List,
   ListItem,
   ListItemButton,
   ListItemText,
+  Typography,
 } from "@mui/material";
 import { navlinks } from "../../constants/navlinks";
 import { Link as RouterLink } from "react-router-dom";
