@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 
 * {
   padding: 0;
@@ -13,7 +13,30 @@
 
 :root {
   --bg-1: rgba(0, 0, 0, 0.715);
+  --bg-2: rgba(255, 255, 255, 0.1);
   --clr-primary: white;
   --clr-secondary: orangered;
   --clr-black: black;
+  --clr-dark: #1a191d;
+}
+
+.carousel-button-group {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.carousel-button-group button {
+  border: none;
+  background: black;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-items: center;
+  margin: 0 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.carousel-item-padding-40-px {
+  padding: 1rem;
 }

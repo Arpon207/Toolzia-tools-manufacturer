@@ -1,0 +1,13 @@
+.categories .Mui-selected {
+  color: white !important;
+  z-index: 2;
+}
+
+.categories .css-1aquho2-MuiTabs-indicator {
+  background-color: orangered !important;
+  height: 100%;
+}
+
+.MuiPaginationItem-text {
+  color: white !important;
+}

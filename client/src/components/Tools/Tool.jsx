@@ -1,4 +1,3 @@
-import * as React from "react";
 import {
   Box,
   Button,
@@ -8,6 +7,7 @@ import {
   styled,
   Typography,
 } from "@mui/material";
+import * as React from "react";
 
 const CustomStrong = styled("span")({
   fontSize: ".9rem",
@@ -25,8 +25,7 @@ const Tool = ({ tool }) => {
         },
         justifyContent: "space-between",
         alignItems: "center",
-        background: "white",
-        boxShadow: "0 0 .5rem rgba(0,0,0,.1)",
+        backgroundColor: "var(--bg-2)",
       }}
     >
       <Box
@@ -42,14 +41,18 @@ const Tool = ({ tool }) => {
           },
         }}
       >
-        <CardContent>
+        <CardContent
+          sx={{
+            color: "white",
+          }}
+        >
           <Typography component="h5" variant="h5">
             {tool.title}
           </Typography>
           <Typography
             sx={{
               fontSize: ".9rem",
-              color: "gray",
+              color: "lightgray",
               m: ".5rem 0",
             }}
             component="p"

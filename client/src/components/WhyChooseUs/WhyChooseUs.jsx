@@ -6,11 +6,11 @@ const WhyChooseUs = () => {
   return (
     <Box
       sx={{
-        background: `url(${background})`,
+        // background: `url(${background})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundAttachment: "fixed",
-        color: "white",
+        color: "black",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -24,7 +24,7 @@ const WhyChooseUs = () => {
       <Divider
         sx={{
           width: "15%",
-          backgroundColor: "white",
+          backgroundColor: "orangered",
           height: "2px",
           margin: ".3rem 0",
         }}
@@ -32,7 +32,7 @@ const WhyChooseUs = () => {
       <Divider
         sx={{
           width: "10%",
-          backgroundColor: "white",
+          backgroundColor: "orangered",
           height: "2px",
           margin: ".3rem 0",
         }}
@@ -45,7 +45,10 @@ const WhyChooseUs = () => {
       <Box
         sx={{
           display: "grid",
-          gridTemplateColumns: "repeat(3,1fr)",
+          gridTemplateColumns: {
+            sm: "1fr",
+            md: "repeat(3,1fr)",
+          },
           width: "80%",
           mt: "2rem",
           gap: "0 2rem",

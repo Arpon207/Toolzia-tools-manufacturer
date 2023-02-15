@@ -17,9 +17,9 @@
     "framer-motion": "^8.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-multi-carousel": "^2.8.2",
     "react-query": "^3.39.3",
-    "react-router-dom": "^6.6.2",
-    "swiper": "^8.4.6"
+    "react-router-dom": "^6.6.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",
