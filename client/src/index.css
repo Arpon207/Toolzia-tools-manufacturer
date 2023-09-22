@@ -40,3 +40,7 @@
 .quote {
   filter: var(--filter-white);
 }
+
+.icon_white {
+  filter: var(--filter-white);
+}
