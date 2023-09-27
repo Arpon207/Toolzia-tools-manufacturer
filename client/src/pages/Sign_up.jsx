@@ -1,17 +1,46 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import Social_login from "../components/Social/Social_login";
+import {
+  useCreateUserWithEmailAndPassword,
+  useUpdateProfile,
+} from "react-firebase-hooks/auth";
+import { auth } from "../Firebase/firebase.config,";
+import { useEffect, useState } from "react";
 
 const Sign_in = () => {
   const navigate = useNavigate();
+  const [createUserWithEmailAndPassword, createdUer, loading, creatingError] =
+    useCreateUserWithEmailAndPassword(auth, {
+      sendEmailVerification: true,
+    });
+  const [updateProfile, updating, error] = useUpdateProfile(auth);
+  const [firebaseError, setFirebaseError] = useState("");
+
   const {
     register,
     handleSubmit,
     formState: { errors },
     watch,
   } = useForm();
-  const onSubmit = (data) => console.log(data);
-  console.log(errors);
+  const onSubmit = async (data) => {
+    await createUserWithEmailAndPassword(data.email, data.password);
+    await updateProfile({ displayName: data.username });
+  };
+
+  useEffect(() => {
+    if (creatingError?.code === "auth/email-already-in-use") {
+      setFirebaseError("This email is already used for another account.");
+    }
+    if (createdUer) {
+      navigate("/");
+    }
+  }, [creatingError, createdUer]);
+
+  const handleClickinside = (e) => {
+    setFirebaseError("");
+  };
+
   return (
     <div>
       <div className="grid grid-cols-[35%_65%] h-screen">
@@ -50,6 +79,7 @@ const Sign_in = () => {
               <div>
                 <label htmlFor="username">User Name</label>
                 <input
+                  onClick={handleClickinside}
                   type="text"
                   placeholder="Enter Your Username"
                   id="username"
@@ -75,6 +105,7 @@ const Sign_in = () => {
               <div>
                 <label htmlFor="email">Email</label>
                 <input
+                  onClick={handleClickinside}
                   type="email"
                   placeholder="Enter Your Email"
                   id="email"
@@ -96,6 +127,7 @@ const Sign_in = () => {
               <div>
                 <label htmlFor="password">Password</label>{" "}
                 <input
+                  onClick={handleClickinside}
                   type="password"
                   placeholder="Enter Your Password"
                   id="password"
@@ -118,6 +150,7 @@ const Sign_in = () => {
               <div>
                 <label htmlFor="confirm_password">Confirm Password</label>{" "}
                 <input
+                  onClick={handleClickinside}
                   type="password"
                   placeholder="Enter Your Password Again "
                   id="confirm_password"
@@ -142,6 +175,9 @@ const Sign_in = () => {
                   </p>
                 )}
               </div>
+              {firebaseError && (
+                <p className="text-error text-sm mt-3">{firebaseError}</p>
+              )}
               <button
                 type="submit"
                 className="btn btn-wide bg-[#FF6666] hover:bg-[#e25555] border-none text-white"

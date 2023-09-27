@@ -2,13 +2,15 @@ import { Link, NavLink } from "react-router-dom";
 import NavIcon from "../../assets/Icons/tools.png";
 import MenuIcon from "../../assets/Icons/menu.png";
 import { navlinks } from "../../constants/navlinks";
-import { TiThMenu } from "react-icons/ti";
 import Drawer from "./Drawer";
 import { useState } from "react";
 import sign_in_icon from "../../assets/Icons/refer.png";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../../Firebase/firebase.config,";
+import { signOut } from "firebase/auth";
 
 const Navbar = () => {
-  const [user, setUser] = useState(false);
+  const [user] = useAuthState(auth);
   return (
     <div className="sticky top-0 w-full z-50 bg-base-200">
       <div className="navbar w-[90%] mx-auto h-[80px]">
@@ -76,7 +78,12 @@ const Navbar = () => {
                     Settings
                   </Link>
                 </li>
-                <button className="btn btn-xs btn-neutral mt-2">Logout</button>
+                <button
+                  className="btn btn-xs btn-neutral mt-2"
+                  onClick={() => signOut(auth)}
+                >
+                  Logout
+                </button>
               </ul>
             </div>
           ) : (

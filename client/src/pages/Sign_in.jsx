@@ -1,19 +1,41 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import Social_login from "../components/Social/Social_login";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { auth } from "../Firebase/firebase.config,";
+import { useEffect, useRef, useState } from "react";
 
 const Sign_in = () => {
+  const [
+    signInwithEmailAndPassword,
+    userWithEmailAndPassword,
+    loading,
+    loginError,
+  ] = useSignInWithEmailAndPassword(auth);
   const navigate = useNavigate();
+  const [firebaseError, setFirebaseError] = useState("");
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const onSubmit = (data) => {
-    console.log(data);
+    signInwithEmailAndPassword(data.email, data.password);
   };
 
-  console.log(errors);
+  useEffect(() => {
+    if (loginError?.code === "auth/invalid-login-credentials") {
+      setFirebaseError("Incorrect Email or Password");
+    }
+    if (userWithEmailAndPassword) {
+      navigate("/");
+    }
+  }, [loginError, userWithEmailAndPassword]);
+
+  const handleClickinside = (e) => {
+    setFirebaseError("");
+  };
 
   return (
     <div>
@@ -53,6 +75,7 @@ const Sign_in = () => {
               <div>
                 <label htmlFor="email">Email</label>
                 <input
+                  onClick={handleClickinside}
                   type="email"
                   placeholder="Enter Your Email"
                   id="email"
@@ -74,6 +97,7 @@ const Sign_in = () => {
               <div>
                 <label htmlFor="password">Password</label>{" "}
                 <input
+                  onClick={handleClickinside}
                   type="password"
                   placeholder="Enter Your Password"
                   id="password"
@@ -93,6 +117,9 @@ const Sign_in = () => {
                   </p>
                 )}
               </div>
+              {firebaseError && (
+                <p className="text-error text-sm mt-3">{firebaseError}</p>
+              )}
               <div className="flex justify-between items-center">
                 <button
                   type="submit"
