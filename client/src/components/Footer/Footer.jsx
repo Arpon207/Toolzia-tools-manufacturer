@@ -28,6 +28,7 @@ const Footer = () => {
                 <Link
                   to={link}
                   className="hover:scale-125 ease-in duration-200"
+                  key={i}
                 >
                   <img src={icon} alt="" width={25} />
                 </Link>

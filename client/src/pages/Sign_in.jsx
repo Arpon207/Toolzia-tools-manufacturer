@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import Social_login from "../components/Social/Social_login";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { auth } from "../Firebase/firebase.config,";
+import { auth } from "../Firebase/firebase.init";
 import { useEffect, useRef, useState } from "react";
 
 const Sign_in = () => {
@@ -87,6 +87,7 @@ const Sign_in = () => {
                       message: "Please enter a valid email.",
                     },
                   })}
+                  autoComplete="off"
                 />
                 {errors?.email && (
                   <p className="text-error text-sm mt-3">
@@ -110,6 +111,7 @@ const Sign_in = () => {
                         "Password should contain minimum 8 characters, atleast one character and one number.",
                     },
                   })}
+                  autoComplete="off"
                 />
                 {errors?.password && (
                   <p className="text-error text-sm mt-3">
@@ -127,7 +129,10 @@ const Sign_in = () => {
                 >
                   Login
                 </button>
-                <button className="btn btn-link no-underline text-error">
+                <button
+                  onClick={() => navigate("/password_reset")}
+                  className="btn btn-link no-underline text-error"
+                >
                   Forget Password ?
                 </button>
               </div>

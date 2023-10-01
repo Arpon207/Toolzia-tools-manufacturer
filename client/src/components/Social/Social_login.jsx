@@ -3,7 +3,7 @@ import google_icon from "../../assets/Icons/Social_Login/social.png";
 import apple_icon from "../../assets/Icons/Social_Login/apple-logo.png";
 import yahoo_icon from "../../assets/Icons/Social_Login/yahoo.png";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
-import { auth } from "../../Firebase/firebase.config,";
+import { auth } from "../../Firebase/firebase.init";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -12,8 +12,10 @@ const Social_login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    user && navigate("/");
-  });
+    if (user) {
+      navigate("/");
+    }
+  }, [user]);
   return (
     <div className="[&_img]:w-6 flex gap-5 my-10">
       <button

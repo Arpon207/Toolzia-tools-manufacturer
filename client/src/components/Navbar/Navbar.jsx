@@ -6,7 +6,7 @@ import Drawer from "./Drawer";
 import { useState } from "react";
 import sign_in_icon from "../../assets/Icons/refer.png";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../Firebase/firebase.config,";
+import { auth } from "../../Firebase/firebase.init";
 import { signOut } from "firebase/auth";
 
 const Navbar = () => {
@@ -20,7 +20,7 @@ const Navbar = () => {
               <NavLink
                 className={({ isActive }) =>
                   `btn btn-ghost normal-case text-base lg:ps-2 lg:pe-2 xl:ps-4 xl:pe-4 ${
-                    isActive && "bg-[#FF6666] text-base-200"
+                    isActive ? "bg-[#FF6666] text-base-200" : ""
                   }`
                 }
                 key={i}
@@ -91,7 +91,9 @@ const Navbar = () => {
               <NavLink
                 className={({ isActive }) =>
                   `btn btn-sm md:btn-md  btn-neutral text-base border-none ${
-                    isActive && "bg-[#FF6666] text-base-200 hover:bg-[#FF6666]"
+                    isActive
+                      ? "bg-[#FF6666] text-base-200 hover:bg-[#FF6666]"
+                      : ""
                   }`
                 }
                 to={"/signin"}

@@ -11,7 +11,9 @@ const Drawer = () => {
   const [isChecked, setIsChecked] = useState(false);
 
   const handleClick = () => {
-    isChecked && setIsChecked(false);
+    if (isChecked) {
+      setIsChecked(false);
+    }
   };
 
   useEffect(() => {

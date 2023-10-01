@@ -46,7 +46,7 @@ const Tools = () => {
                   setCurrentPage(1);
                 }}
                 className={`tab tab-sm lg:tab text-xs ${
-                  tabActive === value && "tab-open"
+                  tabActive === value ? "tab-open" : ""
                 }`}
               >
                 {name}
@@ -76,7 +76,7 @@ const Tools = () => {
           <button
             key={i}
             className={`pagination-btn p-3 lg:p-5 rounded-full ${
-              currentPage === number && "bg-[#FF6666]"
+              currentPage === number ? "bg-[#FF6666]" : ""
             }`}
             onClick={() => setCurrentPage(number)}
           >
@@ -86,7 +86,7 @@ const Tools = () => {
         <button
           onClick={() => setCurrentPage(currentPage + 1)}
           disabled={totalpage.length === currentPage}
-          className={totalpage.length === currentPage && "text-black"}
+          className={totalpage.length === currentPage ? "text-black" : ""}
         >
           &gt;
         </button>

@@ -5,7 +5,7 @@ import {
   useCreateUserWithEmailAndPassword,
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
-import { auth } from "../Firebase/firebase.config,";
+import { auth } from "../Firebase/firebase.init";
 import { useEffect, useState } from "react";
 
 const Sign_in = () => {
@@ -95,6 +95,7 @@ const Sign_in = () => {
                       message: "Username is too long.",
                     },
                   })}
+                  autoComplete="off"
                 />
                 {errors?.username && (
                   <p className="text-error text-sm mt-3">
@@ -117,6 +118,7 @@ const Sign_in = () => {
                       message: "Please enter a valid email.",
                     },
                   })}
+                  autoComplete="off"
                 />
                 {errors?.email && (
                   <p className="text-error text-sm mt-3">
@@ -140,6 +142,7 @@ const Sign_in = () => {
                         "Password should contain minimum 8 characters, atleast one character and one number.",
                     },
                   })}
+                  autoComplete="off"
                 />
                 {errors?.password && (
                   <p className="text-error text-sm mt-3">
@@ -168,6 +171,7 @@ const Sign_in = () => {
                       }
                     },
                   })}
+                  autoComplete="off"
                 />
                 {errors?.confirmPassword && (
                   <p className="text-error text-sm mt-3">
