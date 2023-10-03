@@ -16,14 +16,16 @@ const Social_login = () => {
       navigate("/");
     }
   }, [user]);
+
+  console.log(user);
   return (
     <div className="[&_img]:w-6 flex gap-5 my-10">
       <button
-        className="btn btn-wide bg-[#FF6666] hover:bg-[#e25555] border-none text-white"
+        className="btn lg:btn-wide bg-[#FF6666] hover:bg-[#e25555] border-none text-white"
         onClick={() => signInWithGoogle()}
       >
-        <img src={google_icon} alt="" className="icon_white" /> Login With
-        Google
+        <img src={google_icon} alt="" className="icon_white" />{" "}
+        <p className="hidden lg:block">Login With Google</p>
       </button>
       <button className="btn btn-square btn-neutral">
         <img src={facebook_icon} alt="" className="icon_white" />

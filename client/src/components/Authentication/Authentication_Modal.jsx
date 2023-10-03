@@ -1,19 +1,16 @@
 import { useNavigate } from "react-router-dom";
 
-const Password_Reset_Modal = () => {
+const Authentication_Modal = ({ item }) => {
   const navigate = useNavigate();
   return (
     <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
       <div className="modal-box shadow bg-neutral text-base-200">
         <div className="modal-action">
           <form method="dialog">
-            <h1 className="text-2xl mb-3">Email Sent Successfully</h1>
-            <p className="text-sm mb-5">
-              An Email has been sent to the provided email address. Check the
-              inbox of the email address, and click the reset link provided.
-            </p>
+            <h1 className="text-2xl mb-3">{item.title}</h1>
+            <p className="text-sm mb-5">{item.desc}</p>
             <button
-              onClick={() => navigate("/signin")}
+              onClick={() => navigate(item.route)}
               className="btn ml-[80%]"
             >
               Close
@@ -25,4 +22,4 @@ const Password_Reset_Modal = () => {
   );
 };
 
-export default Password_Reset_Modal;
+export default Authentication_Modal;

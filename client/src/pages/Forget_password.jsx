@@ -4,7 +4,7 @@ import Social_login from "../components/Social/Social_login";
 import { auth } from "../Firebase/firebase.init";
 import { useEffect, useState } from "react";
 import { useSendPasswordResetEmail } from "react-firebase-hooks/auth";
-import Password_Reset_Modal from "../components/Password_Reset/Password_Reset_Modal";
+import Authentication_Modal from "../components/Authentication/Authentication_Modal";
 
 const Sign_in = () => {
   const navigate = useNavigate();
@@ -27,11 +27,11 @@ const Sign_in = () => {
 
   return (
     <div>
-      <div className="grid grid-cols-[35%_65%] h-screen">
+      <div className="grid grid-cols-1 lg:grid-cols-[35%_65%] h-fit lg:h-screen">
         <div className="bg-[url('/src/assets/signin.jpg')] bg-cover bg-no-repeat bg-center text-base-200 ">
-          <div className="w-3/4 mx-auto mt-32">
-            <h3 className="text-2xl mb-5">Toozia</h3>
-            <h3 className=" text-3xl">
+          <div className="w-[90%] lg:w-3/4 mx-auto mb-10 lg:mb-0 mt-32">
+            <h3 className="text-xl lg:text-2xl mb-5">Toozia</h3>
+            <h3 className="text-2xl lg:text-3xl">
               <strong>Don't worry,</strong> We are here help you to recover your
               password.
             </h3>
@@ -39,9 +39,9 @@ const Sign_in = () => {
         </div>
 
         <div className="bg-neutral-900 text-base-200 flex justify-center items-center">
-          <div className=" w-1/2  ">
-            <p>
-              Return to
+          <div className="w-[90%] lg:w-1/2 py-10 lg:py-0">
+            <p className="text-sm lg:text-base">
+              Return to ?
               <button
                 onClick={() => navigate("/signin")}
                 className="btn btn-link text-[#FF6666] no-underline"
@@ -49,9 +49,11 @@ const Sign_in = () => {
                 Login
               </button>
             </p>
-            <h2 className="text-3xl font-medium mb-5">Forget Your Password?</h2>
+            <h2 className="text-2xl lg:text-3xl font-medium mb-5">
+              Forget Your Password?
+            </h2>
 
-            <p className="mb-5">
+            <p className="mb-5 text-sm lg:text-md">
               Enter the email address or mobile number associated with your
               account.
             </p>
@@ -84,9 +86,9 @@ const Sign_in = () => {
               <div className="flex justify-between items-center">
                 <button
                   type="submit"
-                  className="btn btn-wide bg-[#FF6666] hover:bg-[#e25555] border-none text-white"
+                  className="btn lg:btn-wide bg-[#FF6666] hover:bg-[#e25555] border-none text-white"
                 >
-                  Continue
+                  Send
                 </button>
               </div>
             </form>
@@ -99,7 +101,13 @@ const Sign_in = () => {
           </div>
         </div>
       </div>
-      <Password_Reset_Modal />
+      <Authentication_Modal
+        item={{
+          title: "Email Sent Successfully",
+          desc: "An Email has been sent to the provided email address. Check the inbox of the email address, and click the reset link provided.",
+          route: "/signin",
+        }}
+      />
     </div>
   );
 };
