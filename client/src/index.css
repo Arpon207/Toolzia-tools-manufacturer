@@ -8,6 +8,12 @@
   display: none;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 :root {
   --filter-white: invert(91%) sepia(93%) saturate(27%) hue-rotate(198deg)
     brightness(106%) contrast(100%);

@@ -1,11 +1,11 @@
-import Banner from "../components/Banner/Banner";
-import Business_summeries from "../components/Business_summeries/Business_summeries";
-import Featured_Clients from "../components/Featured_Clients/Featured_Clients";
+import Banner from "../components/Homepage/Banner";
+import Business_summeries from "../components/Homepage/Business_summeries";
+import Featured_Clients from "../components/Homepage/Featured_Clients";
 import Footer from "../components/Footer/Footer";
-import Greet from "../components/Greet/Greet";
-import Reviews from "../components/Reviews/Reviews";
-import Tools from "../components/Tools/Tools";
-import Why_Choose_Us from "../components/Why_Choose_Us/Why_Choose_Us";
+import Greet from "../components/Homepage/Greet";
+import Reviews from "../components/Homepage/Reviews";
+import Tools from "../components/Homepage/Tools";
+import Why_Choose_Us from "../components/Homepage/Why_Choose_Us";
 
 const Home = () => {
   return (

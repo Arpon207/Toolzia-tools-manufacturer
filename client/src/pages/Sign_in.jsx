@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import Social_login from "../components/Social/Social_login";
+import Social_login from "../components/Authentication/Social_login";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth } from "../Firebase/firebase.init";
 import { useEffect, useState } from "react";

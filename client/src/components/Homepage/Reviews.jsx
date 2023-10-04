@@ -1,6 +1,6 @@
 import leftQuote from "../../assets/Icons/left-quote.png";
 import rightQuote from "../../assets/Icons/right-quote-sign.png";
-import { responsive } from "./../../constants/slider";
+import { responsive } from "../../constants/slider";
 // import ButtonGroup from "./ButtonGroup";
 
 import Carousel from "react-multi-carousel";

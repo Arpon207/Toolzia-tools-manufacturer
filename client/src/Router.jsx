@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Sign_in from "./pages/Sign_in";
 import Sign_up from "./pages/Sign_up";
 import Forget_Password from "./pages/Forget_password";
+import Product from "./pages/Product";
 
 const Layout = () => {
   return (
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
         path: "/about",
         element: "about",
       },
+      {
+        path: "/:category/:id",
+        element: <Product />,
+      },
     ],
   },
   {
@@ -49,5 +54,4 @@ export const router = createBrowserRouter([
     path: "/password_reset",
     element: <Forget_Password />,
   },
-  ,
 ]);
