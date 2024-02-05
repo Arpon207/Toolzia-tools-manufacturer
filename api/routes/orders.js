@@ -5,7 +5,7 @@ import {
   getOrder,
   getOrders,
   updateOrder,
-} from "../Controllers/order.js";
+} from "../Controllers/order.controller.js";
 import verifyToken from "./../utils/verifyToken.js";
 import verifyAdmin from "./../utils/verifyAdmin.js";
 

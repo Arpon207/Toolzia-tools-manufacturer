@@ -40,13 +40,13 @@ const Counter = ({
         </button>
       </div>
       {count < minimum_order_quantity && (
-        <p className="text-black text-sm mt-3">
-          Order quantity cannot be less than minimum order quantity
+        <p className="text-base-300 text-sm mt-3">
+          *Order quantity cannot be less than minimum order quantity
         </p>
       )}
       {count > available_quantity && (
-        <p className="text-black text-sm mt-3">
-          Order quantity cannot be more than available order quantity
+        <p className="text-base-300 text-sm mt-3">
+          *Order quantity cannot be more than available order quantity
         </p>
       )}
     </div>

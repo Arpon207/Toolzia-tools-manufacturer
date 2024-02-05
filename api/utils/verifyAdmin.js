@@ -1,4 +1,4 @@
-import user from "../models/User.js";
+import user from "../models/User.model.js";
 
 const verifyAdmin = async (req, res, next) => {
   const requester = req.verifiedEmail;

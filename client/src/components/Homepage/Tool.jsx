@@ -1,35 +1,34 @@
 import { useNavigate } from "react-router-dom";
 
 const Tool = ({ tool }) => {
-  console.log(tool);
+  const { title, price, image, _id, category } = tool;
   const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate(`/${category}/${_id}`);
+  };
+
   return (
     <div className="bg-[#ffffff1a] text-base-200 rounded  p-8 ">
-      <div
-        className=" flex flex-col lg:flex-row justify-between items-center gap-5 lg:gap-p cursor-pointer"
-        onClick={() =>
-          navigate(`/${tool.category}/${tool._id}`, {
-            state: { tool },
-          })
-        }
-      >
-        <div className="flex-[3] flex flex-col gap-3 order-2 lg:order-1">
-          <h3 className="text-xl">{tool.title}</h3>
-          <p className="text-sm  text-gray-300">{tool.desc.slice(0, 50)}</p>
-          <h5 className="text-md">Price: $ {tool.price}</h5>
-          <h5 className="text-md">Min. Order: 20 piece</h5>
-          <h5 className="text-md">Available Quantity: 50 piece</h5>
-        </div>
-        <div className="flex-[2] order-1 lg:order-2">
-          <img className="w-full rounded" src={tool.image} alt="" />
-        </div>
-      </div>
-      <div className="flex flex-col lg:flex-row  gap-2 mt-5">
-        <button className="btn btn-sm bg-[#FF6666] lg:mr-5 hover:bg-[#e25555] border-none text-white duration-200">
-          Request Sample
-        </button>
-        <button className="btn btn-sm bg-[#FF6666] lg:mr-5 hover:bg-[#e25555] border-none text-white duration-200">
-          Place Order
+      <img src={image.url} alt="" className="aspect-square rounded-md" />
+      <div className="mt-5">
+        <h3
+          onClick={handleNavigate}
+          className=" h-14 hover:text-[#FF6666] duration-300 cursor-pointer"
+        >
+          {title}
+        </h3>
+        <p>
+          Price: <span className="text-[#FF6666]">$ {price}.00</span>/
+          <small>piece</small>
+        </p>
+        <p>Minimum Order: 20 pieces</p>
+        <button
+          onClick={handleNavigate}
+          className="w-full mt-5 border bordser-spacing-1
+         rounded py-1 hover:border-[#FF6666] duration-300 hover:text-[#FF6666]"
+        >
+          View
         </button>
       </div>
     </div>

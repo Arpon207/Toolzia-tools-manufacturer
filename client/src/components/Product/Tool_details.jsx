@@ -1,23 +1,27 @@
-import React from "react";
+import BasicInfo from "./BasicInfo";
 
-const Product_details = ({ activeTab, specifications, desc }) => {
+const Product_details = ({ activeTab, toolDetails }) => {
+  const { title, specifications, basicInfo, packagingAndDelivery } =
+    toolDetails;
   return (
     <div className="py-10">
       {activeTab === "tools_description" && (
         <div className="[&_li]:text-sm">
-          <p>{desc}</p>
-          <p className="font-medium mt-5">Specifications</p>
+          <p className="font-medium mt-5">{title}</p>
           <ul className="mt-2 ml-16">
             {specifications?.map((specification) => (
               <li className=" list-disc">{specification}</li>
             ))}
           </ul>
+          <BasicInfo basicInfo={basicInfo} />
           <p className="font-medium mt-5">Packaging & Delivery</p>
           <ul className="mt-2 ml-16">
-            <li className=" list-disc">Package Size: 59.00*39.00*28.00(cm)</li>
-            <li className=" list-disc">
-              Package Gross Weight: 42kg (Depends on your order quantity.)
-            </li>
+            {Object.entries(packagingAndDelivery).map(([key, value]) => (
+              <li className="list-disc">
+                {" "}
+                {key} : {value}
+              </li>
+            ))}
           </ul>
         </div>
       )}

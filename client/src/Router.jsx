@@ -4,7 +4,11 @@ import Navbar from "./components/Navbar/Navbar";
 import Sign_in from "./pages/Sign_in";
 import Sign_up from "./pages/Sign_up";
 import Forget_Password from "./pages/Forget_password";
-import Product from "./pages/Product";
+import About from "./pages/About";
+import ToolPage from "./pages/ToolPage";
+import AllTools from "./pages/AllTools";
+import CategorizedTools from "./components/AllTools/CategorizedTools";
+import SearchedToolsPage from "./components/AllTools/SearchedToolsPage";
 
 const Layout = () => {
   return (
@@ -34,11 +38,29 @@ export const router = createBrowserRouter([
       },
       {
         path: "/about",
-        element: "about",
+        element: <About />,
       },
       {
         path: "/:category/:id",
-        element: <Product />,
+        element: <ToolPage />,
+      },
+      {
+        path: "/tools",
+        element: <AllTools />,
+        children: [
+          {
+            path: "/tools",
+            element: <CategorizedTools />,
+          },
+          {
+            path: "/tools/:category",
+            element: <CategorizedTools />,
+          },
+          {
+            path: "/tools/search",
+            element: <SearchedToolsPage />,
+          },
+        ],
       },
     ],
   },

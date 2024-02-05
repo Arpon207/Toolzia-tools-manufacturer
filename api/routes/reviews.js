@@ -5,7 +5,7 @@ import {
   deleteReviewByAdmin,
   getReview,
   getReviews,
-} from "./../Controllers/review.js";
+} from "./../Controllers/review.controller.js";
 import verifyToken from "./../utils/verifyToken.js";
 import verifyAdmin from "./../utils/verifyAdmin.js";
 

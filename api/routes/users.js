@@ -5,7 +5,7 @@ import {
   getUser,
   getUsers,
   handleAdminReq,
-} from "./../Controllers/user.js";
+} from "./../Controllers/user.controller.js";
 import verifyToken from "./../utils/verifyToken.js";
 import verifyAdmin from "./../utils/verifyAdmin.js";
 

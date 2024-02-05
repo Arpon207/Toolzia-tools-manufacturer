@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const toolSchema = new mongoose.Schema(
   {
     image: {
-      type: String,
+      type: Object,
       required: true,
     },
     title: {
@@ -12,19 +12,37 @@ const toolSchema = new mongoose.Schema(
     },
     desc: {
       type: String,
-      required: true,
     },
+    type: {
+      type: String,
+    },
+    featured: {
+      type: Boolean,
+      default: false,
+    },
+    specifications: [String],
     category: {
       type: String,
       required: true,
     },
-    specifications: [String],
+    basicInfo: {
+      type: Object,
+      required: true,
+    },
+    packagingAndDelivery: {
+      type: Object,
+      required: true,
+    },
 
     available_quantity: {
       type: Number,
       required: true,
     },
     price: {
+      type: Number,
+      required: true,
+    },
+    sample_price: {
       type: Number,
       required: true,
     },
@@ -35,6 +53,10 @@ const toolSchema = new mongoose.Schema(
     revenue: {
       type: Number,
       default: 0,
+    },
+    reviews: {
+      type: Array,
+      default: [],
     },
   },
   {
